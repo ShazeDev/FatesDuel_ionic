@@ -1,14 +1,16 @@
 import React from 'react';
-import { IonPage, IonContent, IonButton } from '@ionic/react';
-import { Link } from 'react-router-dom';
+import { IonPage, IonContent} from '@ionic/react';
+import { useHistory } from 'react-router-dom'; 
 import './Home.css';
 import CustomButton from '../components/CustomButton';
 
 
 const Home: React.FC = () => {
+  const history = useHistory();
+
   const handleNewGame = () => {
-    <Link to="/characterSelect">Nueva Partida</Link>
-  }
+    history.push('/characterSelect'); // Navegación programática
+  };
   
   return (
     <IonPage>
