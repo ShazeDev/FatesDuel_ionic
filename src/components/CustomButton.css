@@ -1,0 +1,10 @@
+.custom-button {
+  font-family: 'Trajan Pro', serif;
+  font-weight: bold;
+  padding: 0.625rem 1.25rem; /* Convertido a rem */
+  font-size: 1.625rem; /* 26px convertido a rem */
+  cursor: pointer;
+  background-color: transparent;
+  color: #fff;
+  border: none;
+}
