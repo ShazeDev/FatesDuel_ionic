@@ -5,22 +5,31 @@ import './CustomButton.css';
 interface CustomButtonProps {
   label: string;
   onClick: () => void;
-  disabled?: boolean;  // Hacer que `disabled` sea opcional
+  disabled?: boolean;
+  className?: string;
+  sound?: string; // Nueva propiedad para la ruta del sonido
 }
 
-const CustomButton: React.FC<CustomButtonProps> = ({ label, onClick, disabled }) => {
+const CustomButton: React.FC<CustomButtonProps> = ({ label, onClick, disabled, className, sound }) => {
+  // Función para manejar el clic y reproducir el sonido
+  const handleClick = () => {
+    if (sound) {
+      const audio = new Audio(sound);
+      audio.play(); // Reproducir el sonido
+    }
+    onClick(); // Llamar la función original de clic
+  };
+
   return (
-    <IonButton 
-      className="custom-button" 
-      fill="clear" 
-      disabled={disabled}  // Aplicar la propiedad disabled al botón
-      onClick={onClick}
-      
+    <IonButton
+      className={`custom-button ${className || ''}`}
+      fill="clear"
+      disabled={disabled}
+      onClick={handleClick} // Usa la nueva función que incluye sonido
     >
       {label}
     </IonButton>
   );
 };
 
-// Asegúrate de que esta línea exista:
 export default CustomButton;

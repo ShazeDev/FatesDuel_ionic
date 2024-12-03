@@ -3,8 +3,33 @@
   font-weight: bold;
   padding: 0.625rem 1.25rem; /* Convertido a rem */
   font-size: 1.625rem; /* 26px convertido a rem */
-  cursor: pointer;
-  background-color: transparent;
-  color: #fff;
-  border: none;
+  color: #ffffff;
+  display: inline-block; /* Asegura que el botón sea block o inline-block */
+  transition: transform 0.3s ease-in-out; /* Transición suave al entrar y salir */
+
+ /* Propiedades para eliminar efectos no deseados */
+ --background: transparent;
+ --background-hover: transparent;
+ --background-activated: transparent;
+ --background-focused: transparent;
+ --box-shadow: none;
+ --ripple-color: transparent;
+}
+
+.custom-button:hover {
+  animation: breathing 1.5s infinite; /* Aplica la animación continua mientras está en hover */
+
+}
+
+
+@keyframes breathing {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1); /* Aumenta ligeramente el tamaño */
+  }
+  100% {
+    transform: scale(1); /* Vuelve al tamaño original */
+  }
 }

@@ -1,18 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { IonPage, IonContent } from '@ionic/react';
 import { useHistory } from 'react-router-dom';
-import CustomButton from '../components/CustomButton'; // Asegúrate de tener tu CustomButton
+import CustomButton from '../components/CustomButton'; 
 import './CharacterSelect.css';
 
 type CharacterType = "MAGE" | "ARCHER" | "ROGUE"; // Tipo para los personajes
 
 const CharacterSelect: React.FC = () => {
   const history = useHistory();
+  const audioRef = useRef<HTMLAudioElement>(null);
 
   const [p1CharacterType, setP1CharacterType] = useState<CharacterType | null>(null); 
   const [p2CharacterType, setP2CharacterType] = useState<CharacterType | null>(null);
   const [selectedCharacter, setSelectedCharacter] = useState<CharacterType | null>(null);
 
+  const playHoverSound = () => {
+    if (audioRef.current) {
+      audioRef.current.currentTime = 0; // Reinicia el sonido si ya se está reproduciendo
+      audioRef.current.play();
+    }
+  };
   // Navegar al menú
   const handleMenu = () => {
     history.push('/');
@@ -49,11 +56,14 @@ const CharacterSelect: React.FC = () => {
   return (
     <IonPage>
       <IonContent fullscreen>
-        <div className="character-select-container">
+        <div className="character-select-container" >
           <h1 className="character-select-title">Selecciona personaje</h1>
+       
+
 
           {/* Contenedor de los personajes */}
-          <div className="character-container">
+          <div className="character-container" >
+          
             {["MAGE", "ARCHER", "ROGUE"].map((character) => (
               <div
                 key={character}
@@ -64,8 +74,10 @@ const CharacterSelect: React.FC = () => {
                   src={`/images/${character}Card.png`}
                   alt={`Personaje ${character}`}
                   className={`character-image ${selectedCharacter === character ? "selected" : ""}`}
-                />
+                  onMouseEnter={playHoverSound}/>
+                  <audio ref={audioRef} src="/sounds/MENU_Select.wav" />
               </div>
+              
             ))}
           </div>
 
@@ -76,10 +88,11 @@ const CharacterSelect: React.FC = () => {
               label="Iniciar partida"
               onClick={startGame}
               disabled={!p1CharacterType || !p2CharacterType} // Desactivar si algún personaje no está seleccionado
+              sound="/sounds/MENU_Pick.wav"
             />
             
             {/* Botón de menú */}
-            <CustomButton label="Menú" onClick={handleMenu} />
+            <CustomButton label="Menú" onClick={handleMenu} sound="/sounds/MENU_Pick.wav"/>
           </div>
         </div>
       </IonContent>

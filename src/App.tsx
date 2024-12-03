@@ -3,6 +3,7 @@ import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import Home from './pages/Home';
 import CharacterSelect from './pages/CharacterSelect';
+import FightScreen from './pages/FightScreen';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -44,6 +45,7 @@ const App: React.FC = () => (
             <Route exact path="/" component={Home} /> {/* Ruta para Home */}
             <Route exact path="/home" component={Home} /> {/* Ruta para Home */}
             <Route exact path="/characterSelect" component={CharacterSelect} /> {/* Ruta para CharacterSelect */}
+            <Route exact path="/fight/:p1CharacterType/:p2CharacterType" component={FightScreen} />
           </Switch>
       </IonRouterOutlet>
     </IonReactRouter>
