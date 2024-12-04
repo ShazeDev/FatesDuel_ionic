@@ -1,248 +1,278 @@
 @font-face {
   font-family: 'Alagard';
-  src: url('../fonts/alagard.ttf') format('truetype'); /* Para navegadores más antiguos */
+  src: url('../fonts/alagard.ttf') format('truetype');
+  /* Para navegadores más antiguos */
 }
 
 .fight-screen-container {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    background-image: url('/images/backgroundFS.png');
-    /* Ruta de la imagen de fondo */
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .character-container-fs {
-    display: flex;
-    justify-content: space-between;
-    width: 80%;
-    max-width: 1400px;
-    align-items: center;
-    /* Para asegurar que los personajes estén alineados verticalmente */
-  }
-  
-  .character-fs {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 45%;
-    text-align: center;
-    padding: 50px;
-    justify-content: center;
-    margin-top: 10px;
-    position: relative;
-  }
-  
-  .character .energy {
-    margin-bottom: 10px;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('/images/backgroundFS.png');
+  /* Ruta de la imagen de fondo */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  }
-  
-  
-  
-  .character-image {
-    width: 100%;
-    /* Ahora los personajes ocupan el 100% del ancho de su contenedor */
-    height: auto;
-    margin-bottom: 20px;
-    max-width: 400px;
-    /* Limita el tamaño máximo de las imágenes */
-  }
-  
-  .hearts {
-    position: absolute;
-    /* Los corazones se posicionan en la parte inferior de la carta */
-    bottom: 40px;
-    /* Los coloca en la parte inferior del contenedor */
-    display: flex;
-    justify-content: center;
-    /* Centra los corazones en la parte inferior */
-    width: 100%;
-    /* Asegura que los corazones ocupen todo el ancho de la carta */
-    padding-bottom: 5px;
-    /* Espacio entre la imagen y los corazones */
-  }
-  
-  .heart {
-    width: 80px;
-    /* Tamaño ajustado de los corazones */
-    height: 80px;
-    margin: 0 5px;
-    /* Espacio entre los corazones */
-    object-fit: cover;
-  }
-  
-  .heart.filled {
+.character-container-fs {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  max-width: 1400px;
+  align-items: center;
+  /* Para asegurar que los personajes estén alineados verticalmente */
+}
+
+.character-fs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 45%;
+  text-align: center;
+  padding: 50px;
+  justify-content: center;
+  margin-top: 10px;
+  position: relative;
+}
+
+.character .energy {
+  margin-bottom: 10px;
+
+}
+
+
+
+.character-image {
+  width: 100%;
+  /* Ahora los personajes ocupan el 100% del ancho de su contenedor */
+  height: auto;
+  margin-bottom: 20px;
+  max-width: 400px;
+  /* Limita el tamaño máximo de las imágenes */
+}
+
+.hearts {
+  position: absolute;
+  /* Los corazones se posicionan en la parte inferior de la carta */
+  bottom: 40px;
+  /* Los coloca en la parte inferior del contenedor */
+  display: flex;
+  justify-content: center;
+  /* Centra los corazones en la parte inferior */
+  width: 100%;
+  /* Asegura que los corazones ocupen todo el ancho de la carta */
+  padding-bottom: 5px;
+  /* Espacio entre la imagen y los corazones */
+}
+
+.heart {
+  width: 80px;
+  /* Tamaño ajustado de los corazones */
+  height: 80px;
+  margin: 0 5px;
+  /* Espacio entre los corazones */
+  object-fit: cover;
+}
+
+.heart.filled {
+  opacity: 1;
+}
+
+.heart.empty {
+  opacity: 0;
+}
+
+/* Estilos para los textos de estadísticas */
+.stats-energy {
+  display: flex;
+  /* Coloca los botones en fila */
+  width: 100%;
+  /* Haz que ocupe el ancho completo del contenedor */
+}
+
+.P1stats {
+  width: 73%;
+  text-align: left;
+  font-size: 24px;
+  line-height: 1.5;
+  color: white;
+  background: linear-gradient(to right, rgba(169, 145, 123, 1), rgba(205, 127, 50, 0));
+  border-radius: 10px 0 0 0;
+  margin-left: 35px;
+  padding-left: 10px;
+  font-family: 'Alagard';
+}
+
+.P2stats {
+  width: 73%;
+  text-align: right;
+  font-size: 24px;
+  line-height: 1.5;
+  color: white;
+  background: linear-gradient(to left, rgba(169, 145, 123, 1), rgba(205, 127, 50, 0));
+  border-radius: 0 10px 0 0;
+  /* Redondea solo la esquina superior derecha */
+  padding-right: 10px;
+  font-family: 'Alagard';
+}
+
+.P1energy,
+.P2energy {
+  color: white;
+  display: inline-block;
+  font-size: 64px;
+  white-space: nowrap;
+  /* Evita el salto de línea */
+  text-align: center;
+  /* Centra el texto si es necesario */
+  line-height: 1;
+  /* Asegura un espaciado correcto */
+  padding: 10px;
+  width: 20%;
+  font-family: 'Alagard';
+}
+
+.fighting-for-text {
+  color: white;
+  position: absolute;
+  top: 110px;
+  text-align: center;
+  font-size: 40px;
+  font-family: 'Alagard';
+}
+
+.randomStat {
+  position: absolute;
+  top: 110px;
+}
+
+.victory-message {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+  font-size: 36px;
+  font-weight: bold;
+  color: #fff;
+  font-family: 'Alagard';
+}
+
+.mid-elements {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Centra horizontalmente */
+  justify-content: center;
+  /* Centra verticalmente */
+  text-align: center;
+  /* Centra el texto dentro del contenedor */
+}
+
+/* Contenedor para los botones, centrado entre los dos personajes */
+.button-container {
+  display: flex;
+  /* Coloca los botones en fila */
+  justify-content: center;
+  /* Centra los botones dentro del contenedor */
+  gap: 50px;
+  /* Espacio entre los botones */
+  margin-top: 20px;
+  /* Espacio hacia arriba para separar los botones de otros elementos */
+}
+
+
+
+.button-icon-sword {
+  width: 100px;
+  /* Ajusta el tamaño del botón */
+  height: 100px;
+  background-image: url('/images/SwordIcon.png');
+  /* Ruta de la imagen PNG */
+  background-size: cover;
+  /* Asegura que la imagen ocupe todo el botón */
+  background-position: center;
+  border: none;
+  /* Remueve el borde del botón */
+  background-color: transparent;
+  /* Hace el fondo del botón transparente */
+  cursor: pointer;
+}
+
+.flipped-image {
+  transform: scaleX(-1);
+  /* Invierte la imagen horizontalmente */
+}
+
+.badge-image {
+  background-size: cover;
+  height: 250px;
+  width: 250px;
+}
+
+.button-container2 {
+  display: flex;
+  flex-direction: column;
+  /* Los botones estarán en una columna */
+  position: fixed;
+  /* Fija los botones en la pantalla */
+  top: 20px;
+  right: 20px;
+  gap: 0px;
+  /* Espacio entre los botones */
+  z-index: 10;
+  /* Asegura que esté por encima de otros elementos */
+}
+
+.back-button {
+  padding: 0.325rem 0.5rem;
+  /* Convertido a rem */
+  font-size: 1.20rem;
+  /* 26px convertido a rem */
+  background-color: rgba(0, 0, 0, 0.329);
+  color: #fff;
+  border-radius: 5px;
+}
+
+@keyframes flicker {
+  0% {
     opacity: 1;
   }
-  
-  .heart.empty {
-    opacity: 0;
+
+  50% {
+    opacity: 0.5;
   }
-  
-  /* Estilos para los textos de estadísticas */
-  .stats-energy {
-    display: flex;
-    /* Coloca los botones en fila */
-    width: 100%;
-    /* Haz que ocupe el ancho completo del contenedor */
+
+  100% {
+    opacity: 1;
   }
-  
-  .P1stats {
-    width: 73%;
-    text-align: left;
-    font-size: 24px;
-    line-height: 1.5;
-    color: white;
-    background: linear-gradient(to right, rgba(169, 145, 123, 1), rgba(205, 127, 50, 0));
-    border-radius: 10px 0 0 0;
-    margin-left: 35px;
-    padding-left: 10px;
-    font-family: 'Alagard';
-  }
-  
-  .P2stats {
-    width: 73%;
-    text-align: right;
-    font-size: 24px;
-    line-height: 1.5;
-    color: white;
-    background: linear-gradient(to left, rgba(169, 145, 123, 1), rgba(205, 127, 50, 0));
-    border-radius: 0 10px 0 0;
-    /* Redondea solo la esquina superior derecha */
-    padding-right: 10px;
-    font-family: 'Alagard';
-  }
-  
-  .P1energy, .P2energy {
-    display: inline-block;
-    font-size: 64px;
-    white-space: nowrap; /* Evita el salto de línea */
-    text-align: center; /* Centra el texto si es necesario */
-    line-height: 1; /* Asegura un espaciado correcto */
-    padding: 10px;
-    width: 20%;
-    font-family: 'Alagard';
 }
-  
-  .fighting-for-text {
-    position: absolute;
-    top: 110px;
-    text-align: center;
-    font-size: 40px;
-    font-family: 'Alagard';
-  }
 
-  .randomStat{
-    position: absolute;
-    top: 110px;
-  }
-  
-  .victory-message {
-    position: absolute;
-    bottom: 20px;
-    width: 100%;
-    text-align: center;
-    font-size: 36px;
-    font-weight: bold;
-    color: #fff;
-    font-family: 'Alagard';
-  }
+.heart.flicker {
+  animation: flicker 0.2s infinite;
+}
 
-  .mid-elements {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centra horizontalmente */
-    justify-content: center; /* Centra verticalmente */
-    text-align: center; /* Centra el texto dentro del contenedor */
-  }
-  
-  /* Contenedor para los botones, centrado entre los dos personajes */
-  .button-container {
-    display: flex;
-    /* Coloca los botones en fila */
-    justify-content: center;
-    /* Centra los botones dentro del contenedor */
-    gap: 50px;
-    /* Espacio entre los botones */
-    margin-top: 20px;
-    /* Espacio hacia arriba para separar los botones de otros elementos */
-  }
-  
- 
+.fade-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 1);
+  /* Fondo negro */
+  opacity: 0;
+  /* Invisible por defecto */
+  transition: opacity 0.5s ease;
+  /* Controla la duración del fade-in/out */
+  z-index: 9999;
+  /* Asegura que esté por encima de todo */
+  pointer-events: none;
+  /* No bloquea la interacción */
+}
 
-  .button-icon-sword {
-    width: 100px;
-    /* Ajusta el tamaño del botón */
-    height: 100px;
-    background-image: url('/images/SwordIcon.png');
-    /* Ruta de la imagen PNG */
-    background-size: cover;
-    /* Asegura que la imagen ocupe todo el botón */
-    background-position: center;
-    border: none;
-    /* Remueve el borde del botón */
-    background-color: transparent;
-    /* Hace el fondo del botón transparente */
-    cursor: pointer;
-  }
-  
-  .flipped-image {
-    transform: scaleX(-1);
-    /* Invierte la imagen horizontalmente */
-  }
-  
-  .badge-image {
-    background-size: cover;
-    height: 250px;
-    width: 250px;
-  }
-  
-  .button-container2 {
-    display: flex;
-    flex-direction: column; /* Los botones estarán en una columna */
-    position: fixed; /* Fija los botones en la pantalla */
-    top: 20px;
-    right: 20px;
-    gap: 0px; /* Espacio entre los botones */
-    z-index: 10; /* Asegura que esté por encima de otros elementos */
-  }
-  
-  .back-button {
-    padding: 0.325rem 0.5rem; /* Convertido a rem */
-    font-size: 1.20rem; /* 26px convertido a rem */
-    background-color: rgba(0, 0, 0, 0.329);
-    color: #fff;
-    border-radius: 5px;
-  }
-  
-  @keyframes flicker {
-    0% { opacity: 1; }
-    50% { opacity: 0.5; }
-    100% { opacity: 1; }
-  }
-  
-  .heart.flicker {
-    animation: flicker 0.2s infinite;
-  }
-
-  .fade-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 1); /* Fondo negro */
-    opacity: 0; /* Invisible por defecto */
-    transition: opacity 0.5s ease; /* Controla la duración del fade-in/out */
-    z-index: 9999; /* Asegura que esté por encima de todo */
-    pointer-events: none; /* No bloquea la interacción */
-  }
-  
-  .fade-overlay.visible {
-    opacity: 1; /* Totalmente visible */
-  }
+.fade-overlay.visible {
+  opacity: 1;
+  /* Totalmente visible */
+}

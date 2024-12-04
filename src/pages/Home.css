@@ -1,51 +1,55 @@
 /* src/Home.css */
 @font-face {
-    font-family: 'Alagard';
-    src: url('../fonts/alagard.ttf') format('truetype'); /* Para navegadores más antiguos */
+  font-family: 'Alagard';
+  src: url('../fonts/alagard.ttf') format('truetype');
+  /* Para navegadores más antiguos */
 }
 
 @font-face {
-    font-family: 'Trajan Pro';
-    src: url('../fonts/TrajanPro-Regular.ttf') format('truetype'); /* Para navegadores más antiguos */
+  font-family: 'Trajan Pro';
+  src: url('../fonts/TrajanPro-Regular.ttf') format('truetype');
+  /* Para navegadores más antiguos */
 }
 
 @font-face {
-    font-family: 'Trajan Pro';
-    src: url('../fonts/TrajanPro-Bold.otf') format('truetype'); /* Para navegadores más antiguos */
+  font-family: 'Trajan Pro';
+  src: url('../fonts/TrajanPro-Bold.otf') format('truetype');
+  /* Para navegadores más antiguos */
 }
 
 @font-face {
-    font-family: 'Uncial Antiqua';
-    src: 
-       url('../fonts/UncialAntiqua-Regular.ttf') format('truetype'); /* Para navegadores más antiguos */
+  font-family: 'Uncial Antiqua';
+  src:
+    url('../fonts/UncialAntiqua-Regular.ttf') format('truetype');
+  /* Para navegadores más antiguos */
 }
 
 .home-container {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-  }
+  position: relative;
+  background-image: url('/images/mainMenu1.1.png');
+  /* Ruta de la imagen de fondo */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
 
-  .game-title {
-    font-family: 'Uncial Antiqua';
-    font-size: 5.625rem; /* 26px convertido a rem */
-  }
-  
-  .home-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-    z-index: -1;
-  }
-  
-  .home-content {
-    position: relative;
-    color: white;
-    text-align: center;
-    z-index: 1;
-  }
-  
+.game-title {
+  font-family: 'Uncial Antiqua';
+  font-size: 5.625rem;
+  /* 26px convertido a rem */
+}
+
+
+.home-content {
+  top: 20px;
+  position: absolute;
+  color: white;
+  text-align: center;
+  z-index: 1;
+}
