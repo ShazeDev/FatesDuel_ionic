@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Alagard';
+  src: url('../fonts/alagard.ttf') format('truetype'); /* Para navegadores más antiguos */
+}
+
 .fight-screen-container {
     position: relative;
     width: 100vw;
@@ -15,7 +20,7 @@
     display: flex;
     justify-content: space-between;
     width: 80%;
-    max-width: 1200px;
+    max-width: 1400px;
     align-items: center;
     /* Para asegurar que los personajes estén alineados verticalmente */
   }
@@ -34,6 +39,7 @@
   
   .character .energy {
     margin-bottom: 10px;
+
   }
   
   
@@ -75,7 +81,7 @@
   }
   
   .heart.empty {
-    opacity: 0.3;
+    opacity: 0;
   }
   
   /* Estilos para los textos de estadísticas */
@@ -87,18 +93,20 @@
   }
   
   .P1stats {
-    width: 80%;
+    width: 73%;
     text-align: left;
     font-size: 24px;
     line-height: 1.5;
     color: white;
     background: linear-gradient(to right, rgba(169, 145, 123, 1), rgba(205, 127, 50, 0));
     border-radius: 10px 0 0 0;
+    margin-left: 35px;
     padding-left: 10px;
+    font-family: 'Alagard';
   }
   
   .P2stats {
-    width: 80%;
+    width: 73%;
     text-align: right;
     font-size: 24px;
     line-height: 1.5;
@@ -107,21 +115,31 @@
     border-radius: 0 10px 0 0;
     /* Redondea solo la esquina superior derecha */
     padding-right: 10px;
+    font-family: 'Alagard';
   }
   
   .P1energy, .P2energy {
     display: inline-block;
     font-size: 64px;
-    font-weight: bold;
     white-space: nowrap; /* Evita el salto de línea */
     text-align: center; /* Centra el texto si es necesario */
     line-height: 1; /* Asegura un espaciado correcto */
     padding: 10px;
+    width: 20%;
+    font-family: 'Alagard';
 }
   
   .fighting-for-text {
+    position: absolute;
+    top: 110px;
     text-align: center;
-    font-size: 20px;
+    font-size: 40px;
+    font-family: 'Alagard';
+  }
+
+  .randomStat{
+    position: absolute;
+    top: 110px;
   }
   
   .victory-message {
@@ -129,9 +147,18 @@
     bottom: 20px;
     width: 100%;
     text-align: center;
-    font-size: 24px;
+    font-size: 36px;
     font-weight: bold;
     color: #fff;
+    font-family: 'Alagard';
+  }
+
+  .mid-elements {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra horizontalmente */
+    justify-content: center; /* Centra verticalmente */
+    text-align: center; /* Centra el texto dentro del contenedor */
   }
   
   /* Contenedor para los botones, centrado entre los dos personajes */
@@ -146,21 +173,7 @@
     /* Espacio hacia arriba para separar los botones de otros elementos */
   }
   
-  .button-icon-dice {
-    width: 100px;
-    /* Ajusta el tamaño del botón */
-    height: 100px;
-    background-image: url('/images/DiceIcon.png');
-    /* Ruta de la imagen PNG */
-    background-size: cover;
-    /* Asegura que la imagen ocupe todo el botón */
-    background-position: center;
-    border: none;
-    /* Remueve el borde del botón */
-    background-color: transparent;
-    /* Hace el fondo del botón transparente */
-    cursor: pointer;
-  }
+ 
 
   .button-icon-sword {
     width: 100px;
@@ -177,9 +190,6 @@
     /* Hace el fondo del botón transparente */
     cursor: pointer;
   }
-
-  
-  
   
   .flipped-image {
     transform: scaleX(-1);
@@ -188,76 +198,51 @@
   
   .badge-image {
     background-size: cover;
-    /* Asegura que la imagen ocupe todo el botón */
-    background-position: center;
     height: 250px;
     width: 250px;
   }
   
-  .back-button {
-    position: absolute;
-    /* Coloca el botón en una posición absoluta */
+  .button-container2 {
+    display: flex;
+    flex-direction: column; /* Los botones estarán en una columna */
+    position: fixed; /* Fija los botones en la pantalla */
     top: 20px;
-    /* Ajusta la distancia desde la parte superior */
     right: 20px;
-    /* Ajusta la distancia desde la parte derecha */
-    font-family: 'Trajan Pro';
-    /* Usa la fuente deseada */
-    font-size: 16px;
-    /* Tamaño de fuente */
-    padding: 10px 20px;
-    /* Tamaño del botón */
-    cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.6);
-    /* Fondo semitransparente */
-    color: #fff;
-    /* Color del texto */
-    border: none;
-    /* Sin borde */
-    border-radius: 5px;
-    /* Bordes redondeados */
-    z-index: 10;
-    /* Asegura que esté por encima de otros elementos */
+    gap: 0px; /* Espacio entre los botones */
+    z-index: 10; /* Asegura que esté por encima de otros elementos */
   }
   
   .back-button {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-family: 'Trajan Pro';
     padding: 0.325rem 0.5rem; /* Convertido a rem */
     font-size: 1.20rem; /* 26px convertido a rem */
-    cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.329);
     color: #fff;
-    border: none;
     border-radius: 5px;
-    z-index: 10;
-
   }
   
-  /* Flicker animation */
-@keyframes flicker {
-  0% {
-    opacity: 1;
+  @keyframes flicker {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
   }
-  25% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  75% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-/* Apply flicker to the heart */
-.flicker {
-  animation: flicker 0.6s linear 0s 5; /* 5 iterations of flicker */
-}
-
   
+  .heart.flicker {
+    animation: flicker 0.2s infinite;
+  }
+
+  .fade-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 1); /* Fondo negro */
+    opacity: 0; /* Invisible por defecto */
+    transition: opacity 0.5s ease; /* Controla la duración del fade-in/out */
+    z-index: 9999; /* Asegura que esté por encima de todo */
+    pointer-events: none; /* No bloquea la interacción */
+  }
+  
+  .fade-overlay.visible {
+    opacity: 1; /* Totalmente visible */
+  }
